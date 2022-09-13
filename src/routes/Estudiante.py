@@ -48,13 +48,13 @@ def add_estudiante():
         return jsonify({'message': str(ex)}), 500
     
 
-@main.route('/update', methods=['PUT'])
-def update_estudiante(id_estudiante):
+@main.route('/update/<id>', methods=['PUT'])
+def update_estudiante(id):
     try:
-        nombre_estudiante = request.json['nombre_estudiante']
         correo_estudiante = request.json['correo_estudiante']
+        nombre_estudiante = request.json['nombre_estudiante']
         id_facultad = request.json['id_facultad']
-        estudiante = Estudiante(id_estudiante, correo_estudiante, nombre_estudiante, id_facultad)
+        estudiante = Estudiante(id, correo_estudiante, nombre_estudiante, id_facultad)
         
         affected_rows = EstudianteModel.update_estudiante(estudiante)
 
