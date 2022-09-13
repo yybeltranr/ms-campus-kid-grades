@@ -67,10 +67,10 @@ def update_estudiante(id):
         return jsonify({'message': str(ex)}), 500
     
 
-@main.route('/delete', methods=['DELETE'])
-def delete_estudiante(id_estudiante):
+@main.route('/delete/<id>', methods=['DELETE'])
+def delete_estudiante(id):
     try:
-        estudiante = Estudiante(id_estudiante)
+        estudiante = Estudiante(id)
         
         affected_rows = EstudianteModel.delete_estudiante(estudiante)
 
