@@ -31,11 +31,11 @@ def get_estudiante(id):
 @main.route('/add', methods=['POST'])
 def add_estudiante():
     try:
-        nombre_estudiante = request.json['nombre_estudiante']
+        id_estudiante = request.json['id_estudiante']
         correo_estudiante = request.json['correo_estudiante']
+        nombre_estudiante = request.json['nombre_estudiante']
         id_facultad = request.json['id_facultad']
-        id_estudiante = uuid.uuid4()
-        estudiante = Estudiante(str(id_estudiante), correo_estudiante, nombre_estudiante, id_facultad)
+        estudiante = Estudiante(id_estudiante, correo_estudiante, nombre_estudiante, id_facultad)
         
         affected_rows = EstudianteModel.add_estudiante(estudiante)
 

@@ -48,8 +48,7 @@ class EstudianteModel():
             connection = get_connection()
             
             with connection.cursor() as cursor:
-                cursor.execute("""INSERT INTO estudiante (id_estudiante, correo_estudiante, nombre_estudiante, id_facultad) 
-                                VALUES (%s, %s, %s, %s)""", (estudiante.id_estudiante, estudiante.correo_estudiante, estudiante.nombre_estudiante, estudiante.id_facultad))
+                cursor.execute("INSERT INTO estudiante (id_estudiante, correo_estudiante, nombre_estudiante, id_facultad) VALUES (%s, %s, %s, %s)", (estudiante.id_estudiante, estudiante.correo_estudiante, estudiante.nombre_estudiante, estudiante.id_facultad))
                 affected_rows= cursor.rowcount
                 connection.commit()
                     
