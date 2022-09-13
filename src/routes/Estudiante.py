@@ -17,9 +17,9 @@ def get_estudiantes():
         return jsonify({'message': str(ex)}), 500
     
 @main.route('/<id>', methods=['GET'])
-def get_estudiante(id_estudiante):
+def get_estudiante(id):
     try:
-        estudiante = EstudianteModel.get_estudiante(id_estudiante)
+        estudiante = EstudianteModel.get_estudiante(id)
         if estudiante != None:
             return jsonify(estudiante)
         else:
