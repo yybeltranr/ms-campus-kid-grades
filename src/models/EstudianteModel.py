@@ -23,12 +23,12 @@ class EstudianteModel():
             raise Exception(ex)
     
     @classmethod
-    def get_estudiante(self, id):
+    def get_estudiante(self, id_estudiante):
         try:
             connection = get_connection()
             
             with connection.cursor() as cursor:
-                cursor.execute("SELECT * FROM estudiante WHERE id_estudiante = %s", (id,))
+                cursor.execute("SELECT * FROM estudiante WHERE id_estudiante = %s", (id_estudiante,))
                 row= cursor.fetchone()
                 
                 estudiante = None
